@@ -18,7 +18,7 @@ layout: default
     {%- endif %}
     <div class="hero-actions">
       {%- if cv_pdf != "" %}
-      <a class="btn btn-primary" href="{{ cv_pdf | relative_url }}">{% include icon.html name="download" %}<span>Download CV</span></a>
+      <a class="btn btn-primary" href="{{ cv_pdf | relative_url }}">{% include icon.html name="download" %}<span>Resume (PDF)</span></a>
       <a class="btn" href="{{ '/cv/' | relative_url }}"><span>View CV</span></a>
       {%- else %}
       <a class="btn btn-primary" href="{{ '/cv/' | relative_url }}"><span>View CV</span>{% include icon.html name="arrow" %}</a>

@@ -33,7 +33,7 @@ servers. That work became [ParetoPipe](https://github.com/cloudsyslab/ParetoPipe
 and a paper at IEEE EdgeCom 2025, and it's why I still measure efficiency on
 real devices rather than by parameter count. I finished my B.S. in Computer
 Science at UTSA in 2025 as a School of Data Science Undergraduate Research
-Fellow and started the Ph.D. in 2026.
+Fellow and started the Ph.D. that fall.
 
 ## Outside the lab
 

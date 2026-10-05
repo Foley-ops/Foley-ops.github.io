@@ -7,11 +7,11 @@ education:
   - degree: Ph.D., Computer Science
     institution: The University of Texas at San Antonio
     location: San Antonio, TX
-    dates: 2026 – present
+    dates: Aug 2025 – present
     details:
       - "Advisor: [Dr. Amanda Fernandez](https://sites.google.com/view/amandafernandez), Vision and Artificial Intelligence Laboratory (VAIL)"
       - "Focus: geometric deep learning; quaternion and hypercomplex neural networks"
-      - Entered from the UTSA M.S. program in Computer Science (2025–2026)
+      - "GPA: 4.0"
   - degree: B.S., Computer Science
     institution: The University of Texas at San Antonio
     location: San Antonio, TX
@@ -31,33 +31,36 @@ research:
     details:
       - "Quaternion attention on spherical lattices (QSV): coupled attention and feature transport from one learned unit quaternion per token; ablations isolating transport from routing."
       - Spherical graph neural networks on Fibonacci lattices with sparse k-NN message passing.
+      - Reproducible experiment pipelines in Python, with every run's hyperparameters, metrics, and artifacts logged in Weights & Biases.
       - Visual place recognition and hypercomplex layers for edge hardware.
-  - role: Research Assistant
+  - role: Graduate Research Assistant (SDS Research Fellow, Jan–Aug 2025)
     org: Cloud and Systems Lab (CloudSys), UTSA, with [Dr. Palden Lama](https://www.cs.utsa.edu/~plama/)
     dates: Jan 2025 – Jun 2026
     details:
-      - Multi-objective DNN partitioning for edge inference; co-developed the open-source ParetoPipe framework (IEEE EdgeCom 2025).
-      - Distributed inference experiments on NVIDIA Jetson and Raspberry Pi clusters, including latency, throughput, and power across edge devices.
+      - Benchmarked DNN partitioning strategies on a 6-device NVIDIA Jetson and Raspberry Pi cluster and mapped the accuracy–latency–power Pareto front (IEEE EdgeCom 2025); co-developed the open-source ParetoPipe framework.
+      - Built Python data pipelines and trained a graph neural network to predict the best partitioning strategy.
       - Pipelined distributed CNN inference on a Raspberry Pi cluster (6.38× throughput over a sequential baseline).
 
 experience:
-  - role: Co-founder & AI/ML Engineer
+  - role: Co-Owner & Machine Learning Consultant
     org: Foresyth Foley LLC
-    dates: 2026 – present
+    location: San Antonio, TX
+    dates: Jun 2026 – present
     details:
-      - AI/ML engineering and contracting for organizations adopting machine learning.
+      - Scoped the migration of a telecom client's production competitive-intelligence system from a hosted commercial LLM API to a self-hosted open-weight model; wrote the statement of work and am evaluating candidate models against output-quality, latency, cost, and data-privacy requirements.
   - role: Software/DevOps Engineer Intern
     org: USAA
     location: San Antonio, TX
     dates: May – Aug 2024
     details:
-      - Extended the DB-Deploy system to AWS Aurora PostgreSQL, automating grants and permissions while preserving the existing Java architecture.
+      - Automated Aurora PostgreSQL grant and permission provisioning with SQL scripts, replacing a manual deployment step.
+      - Adapted Java deployment tooling for a cloud migration within USAA's SDLC and change-management controls.
   - role: Software/DevOps Engineer Intern
     org: Xpedient Technologies
     location: San Antonio, TX
     dates: Dec 2022 – Aug 2023
     details:
-      - Built a custom CI/CD pipeline for the company's software development life cycle, with Docker-based containerization.
+      - SQL reporting; built a Docker-based CI/CD pipeline for the company's software development life cycle.
 
 service:
   - role: Aircraft Collateral Duty Quality Assurance Representative
@@ -66,8 +69,9 @@ service:
     dates: Sep 2015 – Sep 2020
     details:
       - Five years maintaining C-130J aircraft, three of them in leadership roles.
-      - Inspected aircraft maintenance and parts for compliance with safety and quality standards.
-      - Designed and taught environmental and occupational health and safety courses for over 100 Marines.
+      - Performed risk-based inspections of aircraft maintenance for regulatory compliance and translated findings into maintenance recommendations for non-technical leadership.
+      - Improved the accuracy of aircraft parts and ordnance inventory records through systematic auditing.
+      - Designed and taught safety and quality-standards courses to 100+ Marines across multiple units.
 
 teaching:
   - role: "Grader, CS 4333/5463: Probability and Computing"
@@ -86,11 +90,15 @@ honors:
     dates: "2011"
 
 skills:
-  - area: Languages
-    items: Python, C, C++, Rust, Go, TypeScript/JavaScript, SQL, Bash, LaTeX
-  - area: ML
-    items: PyTorch, PyTorch Geometric, TensorFlow, scikit-learn, Weights & Biases, Ollama
-  - area: Infrastructure
-    items: Linux, Docker, Ansible, GitHub Actions, AWS
+  - area: Machine learning
+    items: PyTorch, PyTorch Geometric, TensorFlow, scikit-learn, XGBoost; GNNs, Transformers; SHAP
+  - area: LLMs
+    items: RAG, output validation, prompt engineering, self-hosted models (Ollama), MCP
+  - area: Statistics
+    items: EDA, statistical inference, hypothesis testing, confidence intervals, experimental design
+  - area: Programming
+    items: Python, C/C++, Rust, Go, TypeScript, SQL (PostgreSQL, SQL Server), Bash, LaTeX
+  - area: MLOps & cloud
+    items: Docker, Git, CI/CD, Weights & Biases, MLflow, AWS (Aurora, EC2), GCP, Azure, Linux, Ansible
   - area: Hardware
     items: NVIDIA Jetson, Raspberry Pi, Arduino

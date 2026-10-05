@@ -25,10 +25,10 @@ Pages → Run workflow**.
 | What  | Put the file at | Then set in `_config.yml` |
 |-------|-----------------|---------------------------|
 | Photo | `assets/img/profile.jpg` (a portrait about 600×720; 5:6 crop) | `avatar: /assets/img/profile.jpg` |
-| CV    | `assets/files/Nicholas_Foley_CV.pdf` | `cv_pdf: /assets/files/Nicholas_Foley_CV.pdf` |
+| Resume PDF | `assets/files/Nicholas_Foley_Resume.pdf` (replace the file to update it) | `cv_pdf: /assets/files/Nicholas_Foley_Resume.pdf` |
 
 Until they're set, the site shows an "NF" monogram and hides the
-*Download CV* buttons. The HTML CV page works either way.
+*Resume (PDF)* buttons. The HTML CV page works either way.
 
 ## Where everything lives
 

@@ -34,10 +34,8 @@ author:
   #   avatar: /assets/img/profile.jpg
   # Until then the site shows an "NF" monogram tile.
   avatar: ""
-  # CV: drop your PDF at assets/files/Nicholas_Foley_CV.pdf, then set:
-  #   cv_pdf: /assets/files/Nicholas_Foley_CV.pdf
-  # Until then the "Download PDF" buttons are hidden.
-  cv_pdf: ""
+  # Resume/CV PDF linked from the home and CV pages (blank hides the buttons)
+  cv_pdf: /assets/files/Nicholas_Foley_Resume.pdf
 
 # Top navigation (order matters)
 nav:

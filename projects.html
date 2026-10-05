@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 kicker: Software
 lede: >-
-  Research code and the tools I build on the side. Everything here is open source
+  Research code and the tools I build on the side. Most of it is open source
   on [GitHub](https://github.com/Foley-ops).
 ---
 {%- for g in site.data.projects.groups %}
@@ -16,7 +16,7 @@ lede: >-
     {%- for p in items %}
     {%- assign main_url = p.links.code | default: p.links.demo | default: p.links.docs -%}
     <article class="project-card">
-      <h3 class="project-name"><a href="{{ main_url }}">{{ p.name }}</a></h3>
+      <h3 class="project-name">{% if main_url %}<a href="{{ main_url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</h3>
       {%- if p.note %}<p class="project-note">{{ p.note }}</p>{% endif %}
       <p class="project-blurb">{{ p.blurb }}</p>
       {%- if p.tags %}
@@ -24,6 +24,7 @@ lede: >-
         {%- for t in p.tags %}<li>{{ t }}</li>{%- endfor %}
       </ul>
       {%- endif %}
+      {%- if p.links %}
       <div class="project-links">
         {%- for l in p.links -%}
           {%- assign key = l[0] -%}
@@ -37,6 +38,7 @@ lede: >-
         <a class="chip-link" href="{{ l[1] }}">{% include icon.html name=key %}<span>{{ label }}</span></a>
         {%- endfor %}
       </div>
+      {%- endif %}
     </article>
     {%- endfor %}
   </div>

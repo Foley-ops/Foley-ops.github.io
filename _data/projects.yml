@@ -39,12 +39,24 @@ items:
     group: research
     featured: true
     blurb: >-
-      Local-first research reference for mathematics, AI, and programming:
-      canonical concept pages in a typed knowledge graph, prerequisite-based
-      reading paths, full-text search, and answers grounded by local models.
+      Local-first knowledge-graph wiki of math and AI concepts with
+      retrieval-augmented Q&A: a local LLM answers from up to 8 retrieved pages
+      with citable IDs, and answers with invalid citations are discarded. An
+      evaluation harness picks the answering model from 8B–12B open-weight
+      candidates; search and path-finding stay deterministic.
     tags: [TypeScript, Docusaurus, SQLite FTS5, Ollama]
     links:
       code: https://github.com/Foley-ops/knowledge-navigator
+
+  - name: Trading-card recognition
+    group: tools
+    blurb: >-
+      Local Magic: The Gathering card identifier: detect, warp, embed with
+      DINOv3, and FAISS nearest-neighbor search, replacing a perceptual-hash
+      baseline that didn't scale. On a 5,327-card catalog with 2,060 distorted
+      queries it reaches Recall@1 0.82 and Recall@5 1.00; ViT beats ConvNeXt on
+      shared-frame cards because average pooling washes out the art.
+    tags: [DINOv3, FAISS, retrieval, computer vision]
 
   - name: firmament
     group: tools
