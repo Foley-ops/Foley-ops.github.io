@@ -10,6 +10,11 @@
   icon: github
   display: Foley-ops
 
+- label: Google Scholar
+  url: https://scholar.google.com/citations?user=S09UNGcAAAAJ
+  icon: scholar
+  display: Scholar profile
+
 - label: ORCID
   url: https://orcid.org/0009-0006-3996-0609
   icon: orcid
