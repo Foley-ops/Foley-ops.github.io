@@ -1,0 +1,80 @@
+---
+layout: default
+title: CV
+permalink: /cv/
+---
+{%- assign cv = site.data.cv -%}
+{%- assign cv_pdf = site.author.cv_pdf | strip -%}
+<header class="page-header cv-header">
+  <div>
+    <p class="kicker">Curriculum vitae</p>
+    <h1 class="page-title">{{ site.author.name }}</h1>
+    <p class="cv-contact">
+      <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      <span class="sep">·</span>{{ site.author.location }}
+      <span class="sep">·</span><a href="{{ '/' | relative_url }}">{{ site.url | remove: "https://" }}{{ site.baseurl }}</a>
+    </p>
+  </div>
+  <div class="cv-actions">
+    {%- if cv_pdf != "" %}
+    <a class="btn btn-primary" href="{{ cv_pdf | relative_url }}">{% include icon.html name="download" %}<span>Download PDF</span></a>
+    {%- endif %}
+    <button class="btn print-btn" type="button">Print</button>
+  </div>
+</header>
+
+<section class="cv-section">
+  <h2 class="section-label">Education</h2>
+  {%- for e in cv.education %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+
+<section class="cv-section">
+  <h2 class="section-label">Research experience</h2>
+  {%- for e in cv.research %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+
+<section class="cv-section">
+  <h2 class="section-label">Publications</h2>
+  <div class="cv-pubs">
+    {% bibliography --template bib_cv %}
+  </div>
+</section>
+
+{%- if cv.experience %}
+<section class="cv-section">
+  <h2 class="section-label">Professional experience</h2>
+  {%- for e in cv.experience %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.teaching %}
+<section class="cv-section">
+  <h2 class="section-label">Teaching</h2>
+  {%- for e in cv.teaching %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.service %}
+<section class="cv-section">
+  <h2 class="section-label">Military service</h2>
+  {%- for e in cv.service %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.honors %}
+<section class="cv-section">
+  <h2 class="section-label">Honors & awards</h2>
+  {%- for e in cv.honors %}{% include cv-entry.html entry=e %}{% endfor %}
+</section>
+{%- endif %}
+
+{%- if cv.skills %}
+<section class="cv-section">
+  <h2 class="section-label">Skills</h2>
+  <dl class="cv-skills">
+    {%- for s in cv.skills %}
+    <div><dt>{{ s.area }}</dt><dd>{{ s.items }}</dd></div>
+    {%- endfor %}
+  </dl>
+</section>
+{%- endif %}

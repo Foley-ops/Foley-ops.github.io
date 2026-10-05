@@ -1,0 +1,60 @@
+---
+layout: page
+title: Research
+permalink: /research/
+kicker: Current directions
+lede: >-
+  I work on geometric deep learning: what quaternion and hypercomplex structure
+  contributes to a neural network, how to build models on spherical domains,
+  and how to make them fast on real edge hardware.
+scripts:
+  - /assets/js/sphere.js
+---
+<figure class="sphere-figure">
+  <div class="sphere-stage">
+    <canvas id="sphere" width="560" height="560" aria-label="Animated Fibonacci lattice on the sphere with its k-nearest-neighbor graph" role="img"></canvas>
+  </div>
+  <figcaption>
+    <span class="fig-num">Fig. 1</span>
+    A Fibonacci lattice on S² (N = 420) and its sparse k-nearest-neighbor graph (k = 6):
+    the kind of near-uniform spherical domain my models pass messages over.
+    Drag to rotate.
+  </figcaption>
+</figure>
+
+<nav class="toc" aria-label="Directions on this page">
+  {%- for d in site.data.research %}
+  <a href="#{{ d.key }}"><span class="toc-num">{{ forloop.index | prepend: "0" }}</span>{{ d.title }}</a>
+  {%- endfor %}
+</nav>
+
+{%- for d in site.data.research %}
+<section class="direction" id="{{ d.key }}">
+  <div class="direction-head">
+    <span class="dir-num">{{ forloop.index | prepend: "0" }}</span>
+    <div>
+      <p class="status status-{{ d.status }}">{% case d.status %}{% when "active" %}Active{% when "emerging" %}Emerging{% when "longer-term" %}Longer term{% else %}{{ d.status }}{% endcase %}</p>
+      <h2>{{ d.title }}</h2>
+    </div>
+  </div>
+  <div class="direction-body prose">
+    {{ d.body | markdownify }}
+    {%- if d.questions %}
+    <h3 class="mini-label">Questions I'm working on</h3>
+    <ul class="questions">
+      {%- for q in d.questions %}
+      <li>{{ q | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if d.related %}
+    <h3 class="mini-label">Related</h3>
+    <ul class="related">
+      {%- for r in d.related %}
+      <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a>{% if r.venue %} <span class="faint">{{ r.venue }}</span>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+{%- endfor %}

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="about">
+  <div class="about-main">
+    <header class="page-header">
+      {%- if page.kicker %}<p class="kicker">{{ page.kicker }}</p>{% endif %}
+      <h1 class="page-title">{{ site.author.name }}</h1>
+    </header>
+    <div class="prose">
+{{ content }}
+    </div>
+  </div>
+  <aside class="about-side">
+    {% include portrait.html %}
+    <dl class="facts">
+      <div><dt>Position</dt><dd>{{ site.author.position }}</dd></div>
+      <div><dt>University</dt><dd><a href="{{ site.author.affiliation_url }}">{{ site.author.affiliation }}</a></dd></div>
+      <div><dt>Lab</dt><dd><a href="{{ site.author.lab_url }}">{{ site.author.lab }}</a></dd></div>
+      <div><dt>Advisor</dt><dd><a href="{{ site.author.advisor_url }}">{{ site.author.advisor }}</a></dd></div>
+      <div><dt>Location</dt><dd>{{ site.author.location }}</dd></div>
+    </dl>
+    <h2 class="section-label">Elsewhere</h2>
+    {% include link-list.html detailed=true class="link-list-stacked" %}
+  </aside>
+</div>

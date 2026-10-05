@@ -1,0 +1,45 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+kicker: Software
+lede: >-
+  Research code and the tools I build on the side. Everything here is open source
+  on [GitHub](https://github.com/Foley-ops).
+---
+{%- for g in site.data.projects.groups %}
+  {%- assign items = site.data.projects.items | where: "group", g.key -%}
+  {%- if items.size > 0 %}
+<section class="project-group">
+  <h2 class="section-label">{{ g.title }}</h2>
+  <div class="project-grid">
+    {%- for p in items %}
+    {%- assign main_url = p.links.code | default: p.links.demo | default: p.links.docs -%}
+    <article class="project-card">
+      <h3 class="project-name"><a href="{{ main_url }}">{{ p.name }}</a></h3>
+      {%- if p.note %}<p class="project-note">{{ p.note }}</p>{% endif %}
+      <p class="project-blurb">{{ p.blurb }}</p>
+      {%- if p.tags %}
+      <ul class="tags">
+        {%- for t in p.tags %}<li>{{ t }}</li>{%- endfor %}
+      </ul>
+      {%- endif %}
+      <div class="project-links">
+        {%- for l in p.links -%}
+          {%- assign key = l[0] -%}
+          {%- case key -%}
+            {%- when "code" -%}{%- assign label = "Code" -%}
+            {%- when "paper" -%}{%- assign label = "Paper" -%}
+            {%- when "demo" -%}{%- assign label = "Demo" -%}
+            {%- when "docs" -%}{%- assign label = "Docs" -%}
+            {%- else -%}{%- assign label = key | capitalize -%}
+          {%- endcase %}
+        <a class="chip-link" href="{{ l[1] }}">{% include icon.html name=key %}<span>{{ label }}</span></a>
+        {%- endfor %}
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+  {%- endif %}
+{%- endfor %}

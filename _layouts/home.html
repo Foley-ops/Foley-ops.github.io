@@ -1,0 +1,82 @@
+---
+layout: default
+---
+{%- assign cv_pdf = site.author.cv_pdf | strip -%}
+<section class="hero">
+  <div class="hero-text">
+    <p class="kicker">{{ site.author.position }}<span class="sep">·</span><a href="{{ site.author.affiliation_url }}">{{ site.author.affiliation }}</a></p>
+    <h1 class="hero-name">{{ site.author.name }}</h1>
+    <div class="hero-bio prose">
+{{ content }}
+    </div>
+    {%- if page.interests %}
+    <ul class="chips" aria-label="Research interests">
+      {%- for t in page.interests %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    <div class="hero-actions">
+      {%- if cv_pdf != "" %}
+      <a class="btn btn-primary" href="{{ cv_pdf | relative_url }}">{% include icon.html name="download" %}<span>Download CV</span></a>
+      <a class="btn" href="{{ '/cv/' | relative_url }}"><span>View CV</span></a>
+      {%- else %}
+      <a class="btn btn-primary" href="{{ '/cv/' | relative_url }}"><span>View CV</span>{% include icon.html name="arrow" %}</a>
+      {%- endif %}
+      <a class="btn" href="mailto:{{ site.author.email }}">{% include icon.html name="email" %}<span>Email</span></a>
+    </div>
+    {% include link-list.html class="link-list-inline" skip="email" %}
+  </div>
+  <div class="hero-side">
+    {% include portrait.html %}
+    <dl class="facts">
+      <div><dt>Lab</dt><dd><a href="{{ site.author.lab_url }}">VAIL</a>, {{ site.author.affiliation_short }}</dd></div>
+      <div><dt>Advisor</dt><dd><a href="{{ site.author.advisor_url }}">{{ site.author.advisor }}</a></dd></div>
+      <div><dt>Based in</dt><dd>{{ site.author.location }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2 class="section-label">Current research directions</h2>
+    <a class="section-more" href="{{ '/research/' | relative_url }}">All directions {% include icon.html name="arrow" %}</a>
+  </div>
+  <div class="direction-grid">
+    {%- for d in site.data.research limit: 3 %}
+    <a class="direction-card" href="{{ '/research/' | relative_url }}#{{ d.key }}">
+      <span class="dir-num">{{ forloop.index | prepend: "0" }}</span>
+      <h3>{{ d.title }}</h3>
+      <p>{{ d.summary }}</p>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+<div class="split">
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-label">News</h2>
+    </div>
+    <ol class="news">
+      {%- for n in site.data.news limit: site.home.news_count %}
+      <li>
+        {%- assign d = n.date | append: "" -%}
+        {%- if d.size == 7 -%}{%- assign d = d | append: "-01" | date: "%b %Y" -%}{%- endif %}
+        <time class="news-date">{{ d }}</time>
+        <div class="news-text">{{ n.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-label">Selected publications</h2>
+      <a class="section-more" href="{{ '/publications/' | relative_url }}">All {% include icon.html name="arrow" %}</a>
+    </div>
+    <div class="pub-list">
+      {% bibliography --template bib_compact --query @*[selected=true]* %}
+    </div>
+  </section>
+</div>

@@ -1,0 +1,96 @@
+# CV page content. Publications are pulled automatically from
+# _bibliography/papers.bib. Leave `dates` blank to hide it; `details` supports
+# Markdown. Quote any line that contains ": " (colon + space).
+# (Upload the PDF version and set author.cv_pdf in _config.yml.)
+
+education:
+  - degree: Ph.D., Computer Science
+    institution: The University of Texas at San Antonio
+    location: San Antonio, TX
+    dates: 2026 – present
+    details:
+      - "Advisor: [Dr. Amanda Fernandez](https://sites.google.com/view/amandafernandez), Vision and Artificial Intelligence Laboratory (VAIL)"
+      - "Focus: geometric deep learning; quaternion and hypercomplex neural networks"
+      - Entered from the UTSA M.S. program in Computer Science (2025–2026)
+  - degree: B.S., Computer Science
+    institution: The University of Texas at San Antonio
+    location: San Antonio, TX
+    dates: May 2025
+    details:
+      - "GPA: 4.0"
+  - degree: A.S.
+    institution: Northeast Lakeview College
+    dates: May 2023
+    details:
+      - "GPA: 3.94"
+
+research:
+  - role: Graduate Research Assistant
+    org: Vision and Artificial Intelligence Laboratory (VAIL), UTSA, with [Dr. Amanda Fernandez](https://sites.google.com/view/amandafernandez)
+    dates: Jun 2025 – present
+    details:
+      - "Quaternion attention on spherical lattices (QSV): coupled attention and feature transport from one learned unit quaternion per token; ablations isolating transport from routing."
+      - Spherical graph neural networks on Fibonacci lattices with sparse k-NN message passing.
+      - Visual place recognition and hypercomplex layers for edge hardware.
+  - role: Research Assistant
+    org: Cloud and Systems Lab (CloudSys), UTSA, with [Dr. Palden Lama](https://www.cs.utsa.edu/~plama/)
+    dates: Jan 2025 – Jun 2026
+    details:
+      - Multi-objective DNN partitioning for edge inference; co-developed the open-source ParetoPipe framework (IEEE EdgeCom 2025).
+      - Distributed inference experiments on NVIDIA Jetson and Raspberry Pi clusters, including latency, throughput, and power across edge devices.
+      - Pipelined distributed CNN inference on a Raspberry Pi cluster (6.38× throughput over a sequential baseline).
+
+experience:
+  - role: Co-founder & AI/ML Engineer
+    org: Foresyth Foley LLC
+    dates: 2026 – present
+    details:
+      - AI/ML engineering and contracting for organizations adopting machine learning.
+  - role: Software/DevOps Engineer Intern
+    org: USAA
+    location: San Antonio, TX
+    dates: May – Aug 2024
+    details:
+      - Extended the DB-Deploy system to AWS Aurora PostgreSQL, automating grants and permissions while preserving the existing Java architecture.
+  - role: Software/DevOps Engineer Intern
+    org: Xpedient Technologies
+    location: San Antonio, TX
+    dates: Dec 2022 – Aug 2023
+    details:
+      - Built a custom CI/CD pipeline for the company's software development life cycle, with Docker-based containerization.
+
+service:
+  - role: Aircraft Collateral Duty Quality Assurance Representative
+    org: United States Marine Corps, VMGR-352
+    location: San Diego, CA
+    dates: Sep 2015 – Sep 2020
+    details:
+      - Five years maintaining C-130J aircraft, three of them in leadership roles.
+      - Inspected aircraft maintenance and parts for compliance with safety and quality standards.
+      - Designed and taught environmental and occupational health and safety courses for over 100 Marines.
+
+teaching:
+  - role: Grader, Probability and Computing
+    org: UTSA, Dr. Alperen Ergür
+    dates: Fall 2026
+
+honors:
+  - title: School of Data Science Undergraduate Research Fellowship
+    org: UTSA
+    dates: 2025
+  - title: President's List
+    org: UTSA
+    dates: 2023 – 2025
+  - title: Eagle Scout
+    org: Boy Scouts of America
+    dates: "2011"
+
+skills:
+  - area: Languages
+    items: Python, C, C++, Rust, Go, TypeScript/JavaScript, SQL, Bash, LaTeX
+  - area: ML
+    items: PyTorch, PyTorch Geometric, TensorFlow, scikit-learn, Weights & Biases, Ollama
+  - area: Infrastructure
+    items: Linux, Docker, Ansible, GitHub Actions, AWS
+  - area: Hardware
+    items: NVIDIA Jetson, Raspberry Pi, Arduino

@@ -1,0 +1,10 @@
+{%- assign avatar = site.author.avatar | strip -%}
+<figure class="portrait{% if include.class %} {{ include.class }}{% endif %}">
+  {%- if avatar != "" -%}
+  <img src="{{ avatar | relative_url }}" alt="Portrait of {{ site.author.name }}" width="600" height="720" decoding="async">
+  {%- else -%}
+  <div class="monogram" role="img" aria-label="Placeholder for a photo of {{ site.author.name }}">
+    <span>NF</span>
+  </div>
+  {%- endif -%}
+</figure>

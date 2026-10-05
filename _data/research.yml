@@ -1,0 +1,89 @@
+# Current research directions — shown on /research/ (first three also on the
+# home page). `body` and `questions` support Markdown.
+# status: active | emerging | longer-term
+# related: links shown under a direction (url can point at /publications/#<bibtex key>)
+
+- key: transport
+  title: What hypercomplex attention actually does
+  status: active
+  summary: >-
+    Separating the parts of quaternion attention that carry the signal from the
+    parts that only look like they do.
+  body: >-
+    Quaternion networks are usually motivated by weight sharing and built-in
+    rotational structure, but it is rarely clear which part of the algebra the
+    model is relying on. In QSV, each token carries a single learned unit
+    quaternion; the relative rotation between two tokens produces both the
+    attention logit and the feature transform (a sandwich product).
+    Ablating the two separately shows an asymmetry: removing feature *transport*
+    costs about four points of accuracy, while replacing the learned attention
+    weights with uniform ones barely matters. I'm following that thread:
+    transport, not routing, seems to be where the geometry does its work.
+  questions:
+    - When does a learned rotation help over an unconstrained linear map at equal parameter count?
+    - Can transport-only operators match attention at lower cost?
+    - Which results carry over to the other Clifford algebras?
+  related:
+    - title: "QSV: Quat-Sphere-Vision for Coupled Quaternion Attention on Spherical Lattices"
+      url: /publications/#foley2026qsv
+      venue: arXiv
+
+- key: sphere
+  title: Spherical lattices and graph neural networks
+  status: active
+  summary: >-
+    Vision and message passing on near-uniform point sets on the sphere,
+    with sparse neighborhoods and linear-cost attention.
+  body: >-
+    Fibonacci lattices give near-uniform sampling of the sphere at any
+    resolution, which makes them a natural substrate for rotation-aware models.
+    I work on spherical graph networks that pass messages over sparse
+    k-nearest-neighbor graphs on these lattices, aiming for attention whose
+    cost grows linearly with the number of points instead of quadratically.
+    The goal is a clean testbed where geometric structure can be added or
+    removed one piece at a time and measured.
+  questions:
+    - How should images be lifted onto (and read back off) a spherical lattice?
+    - What neighborhood size and lattice resolution trade off accuracy against cost?
+  related:
+    - title: "QSV: Quat-Sphere-Vision for Coupled Quaternion Attention on Spherical Lattices"
+      url: /publications/#foley2026qsv
+      venue: arXiv
+
+- key: edge
+  title: Geometric models for edge hardware
+  status: active
+  summary: >-
+    Making structured models fast in practice, from layer arithmetic to how
+    inference is split across devices.
+  body: >-
+    Hypercomplex layers share weights across components (a quaternion linear
+    layer uses a quarter of the parameters of its real counterpart), which
+    makes them appealing for memory-bound edge devices, but parameter count
+    is not latency. My systems work started with partitioning and pipelining
+    DNN inference across Raspberry Pi clusters and edge-to-GPU-server setups,
+    where network conditions, not just compute, decide the best split.
+    I now apply the same measure-it-on-real-hardware approach to geometric
+    models, including visual place recognition on edge devices.
+  questions:
+    - Where do hypercomplex layers win on measured latency and energy, not just parameter count?
+    - What would hardware support for quaternion arithmetic need to look like?
+  related:
+    - title: "Where to Split? A Pareto-Front Analysis of DNN Partitioning for Edge Inference"
+      url: /publications/#masud2025wheretosplit
+      venue: IEEE EdgeCom 2025
+
+- key: compression
+  title: Geometry-guided compression
+  status: emerging
+  summary: >-
+    Using geometric and algebraic structure to jointly decide pruning and
+    quantization for parameter-efficient fine-tuning.
+  body: >-
+    Pruning and quantization are usually tuned separately. I'm exploring
+    whether geometric or algebraic structure in adapter weights (LoRA-style
+    PEFT modules) can guide both decisions together, preserving quality while
+    reducing measured memory, latency, and compute. The method is meant to be
+    general rather than specific to language models.
+  questions:
+    - Is there a geometric object (a manifold or polytope) that makes the prune/quantize trade-off visible?

@@ -1,0 +1,39 @@
+# Newest first. `text` supports Markdown (links, *italics*, **bold**).
+- date: 2026-09
+  text: >-
+    Preprint **[QSV: Quat-Sphere-Vision for Coupled Quaternion Attention on
+    Spherical Lattices](https://arxiv.org/abs/2609.30592)** is on arXiv.
+
+- date: 2026-09
+  text: >-
+    Grading for Dr. Alperen Ergür's *Probability and Computing* course this fall.
+
+- date: 2026-08
+  text: >-
+    Started the Ph.D. in Computer Science at UTSA, continuing in the
+    [Vision and AI Lab](https://github.com/UTSA-VAIL) with
+    [Dr. Amanda Fernandez](https://sites.google.com/view/amandafernandez).
+
+- date: 2026-06
+  text: >-
+    Co-founded Foresyth Foley LLC, an AI/ML engineering and contracting firm.
+
+- date: 2026-01
+  text: >-
+    Our EdgeCom paper on DNN partitioning is now on
+    [arXiv](https://arxiv.org/abs/2601.08025); code is open-source at
+    [ParetoPipe](https://github.com/cloudsyslab/ParetoPipe).
+
+- date: 2025-11
+  text: >-
+    *Where to Split? A Pareto-Front Analysis of DNN Partitioning for Edge
+    Inference* appeared at **IEEE EdgeCom 2025** in New York City.
+
+- date: 2025-06
+  text: >-
+    Joined the [Vision and AI Lab](https://github.com/UTSA-VAIL) as a graduate
+    research assistant.
+
+- date: 2025-05
+  text: >-
+    Graduated with a B.S. in Computer Science from UTSA (4.0 GPA).

@@ -1,0 +1,37 @@
+% Publications for the website (rendered by jekyll-scholar).
+% Entry type picks the section: inproceedings = Conference papers,
+% article = Journal articles, misc = Preprints, phdthesis = Theses.
+% Extra fields this site reads (all optional, hidden from the public BibTeX):
+%   abbr = badge text, selected = true to show on the home page, tldr = summary,
+%   arxiv = arXiv id, pdf / code / slides / poster / video / website = full URLs.
+% Write authors as Last, First and Last, First. See README for details.
+
+@misc{foley2026qsv,
+  title         = {{QSV}: Quat-Sphere-Vision for Coupled Quaternion Attention on Spherical Lattices},
+  author        = {Foley, Nicholas and Marinelli, Devin and Moore, Donny and Enriquez, Diego and Fernandez, Amanda},
+  year          = {2026},
+  month         = sep,
+  eprint        = {2609.30592},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  abbr          = {arXiv},
+  selected      = {true},
+  arxiv         = {2609.30592},
+  pdf           = {https://arxiv.org/pdf/2609.30592},
+  tldr          = {Replaces attention's Q/K/V projections with one learned unit quaternion per token on a sparse Fibonacci-sphere graph. Ablations show the quaternion's feature transport carries the signal, while its attention routing barely matters, and parameter-matched standard-attention and 2-D baselines still come out ahead.}
+}
+
+@inproceedings{masud2025wheretosplit,
+  title     = {Where to Split? A Pareto-Front Analysis of {DNN} Partitioning for Edge Inference},
+  author    = {Masud, Adiba and Foley, Nicholas and Rajarajan, Pragathi Durga and Lama, Palden},
+  booktitle = {IEEE International Conference on Edge Computing and Scalable Cloud (EdgeCom)},
+  address   = {New York, NY},
+  year      = {2025},
+  month     = nov,
+  abbr      = {IEEE EdgeCom 2025},
+  selected  = {true},
+  arxiv     = {2601.08025},
+  pdf       = {https://arxiv.org/pdf/2601.08025},
+  code      = {https://github.com/cloudsyslab/ParetoPipe},
+  tldr      = {Treats DNN partitioning across heterogeneous edge devices as a multi-objective problem and maps the latency-throughput Pareto front with ParetoPipe. Network conditions turn out to be a first-class bottleneck: splits that look optimal in the lab can fail under real bandwidth and latency.}
+}

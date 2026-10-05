@@ -1,0 +1,43 @@
+{%- comment -%}
+  Derives display values from a jekyll-scholar `entry` for the bib layouts:
+  title_url, arxiv_url, doi_url, type_label, type_class, venue, authors.
+{%- endcomment -%}
+{%- assign arxiv_url = nil -%}
+{%- assign doi_url = nil -%}
+{%- if entry.arxiv and entry.arxiv != "" -%}{%- assign arxiv_url = "https://arxiv.org/abs/" | append: entry.arxiv -%}{%- endif -%}
+{%- if entry.doi and entry.doi != "" -%}{%- assign doi_url = "https://doi.org/" | append: entry.doi -%}{%- endif -%}
+{%- assign title_url = arxiv_url | default: doi_url | default: entry.url | default: entry.pdf -%}
+
+{%- case entry.type -%}
+  {%- when "inproceedings", "incollection" -%}{%- assign type_label = "Conference" -%}{%- assign type_class = "conference" -%}
+  {%- when "article" -%}{%- assign type_label = "Journal" -%}{%- assign type_class = "journal" -%}
+  {%- when "phdthesis", "mastersthesis" -%}{%- assign type_label = "Thesis" -%}{%- assign type_class = "thesis" -%}
+  {%- else -%}{%- assign type_label = "Preprint" -%}{%- assign type_class = "preprint" -%}
+{%- endcase -%}
+
+{%- capture venue -%}
+  {%- if entry.type == "inproceedings" or entry.type == "incollection" -%}{{ entry.booktitle }}
+  {%- elsif entry.type == "article" -%}{{ entry.journal }}{% if entry.volume %} {{ entry.volume }}{% if entry.number %}({{ entry.number }}){% endif %}{% endif %}
+  {%- elsif entry.type == "phdthesis" -%}Ph.D. thesis, {{ entry.school }}
+  {%- elsif entry.type == "mastersthesis" -%}Master's thesis, {{ entry.school }}
+  {%- elsif entry.eprint or entry.arxiv -%}arXiv preprint arXiv:{{ entry.eprint | default: entry.arxiv }}
+  {%- else -%}{{ entry.howpublished | default: entry.publisher }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- assign n_authors = entry.author_array | size -%}
+{%- capture authors -%}
+  {%- for author in entry.author_array -%}
+    {%- capture author_name %}{{ author.first }} {{ author.last }}{% endcapture -%}
+    {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}
+      <span class="me">{{ author_name | strip }}</span>
+    {%- else -%}
+      {{ author_name | strip }}
+    {%- endif -%}
+    {%- unless forloop.last -%}
+      {%- if forloop.rindex == 2 -%}
+        {%- if n_authors > 2 -%}{{ ", and " }}{%- else -%}{{ " and " }}{%- endif -%}
+      {%- else -%}{{ ", " }}{%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}

@@ -1,4 +1,107 @@
-theme: jekyll-theme-minimal
-title: "Foley-Ops' Homepage"
-description: Bookmark this to keep an eye on my project updates!
-show_nav: true
+# ─────────────────────────────────────────────────────────────
+#  Site settings — most day-to-day edits happen here and in _data/
+# ─────────────────────────────────────────────────────────────
+
+title: Nicholas Foley
+tagline: Geometric deep learning · hypercomplex neural networks · edge AI
+description: >-
+  Nicholas Foley is a Ph.D. student in Computer Science at The University of
+  Texas at San Antonio researching geometric deep learning: quaternion and
+  hypercomplex neural networks, spherical lattices, and models that run
+  efficiently on edge hardware.
+
+# Your GitHub Pages address. For a user site the repo must be named
+# <username>.github.io and baseurl stays empty.
+url: "https://foley-ops.github.io"
+baseurl: ""
+
+author:
+  name: Nicholas Foley
+  first_name: Nicholas
+  email: nickmfoley@gmail.com
+  position: Ph.D. Student, Computer Science
+  affiliation: The University of Texas at San Antonio
+  affiliation_short: UTSA
+  affiliation_url: https://www.utsa.edu
+  lab: Vision and Artificial Intelligence Laboratory (VAIL)
+  lab_url: https://github.com/UTSA-VAIL
+  advisor: Dr. Amanda Fernandez
+  advisor_url: https://sites.google.com/view/amandafernandez
+  location: San Antonio, Texas
+
+  # ── Placeholders: fill these in when ready ──────────────────
+  # Photo: drop a square-ish JPG/PNG at assets/img/profile.jpg, then set:
+  #   avatar: /assets/img/profile.jpg
+  # Until then the site shows an "NF" monogram tile.
+  avatar: ""
+  # CV: drop your PDF at assets/files/Nicholas_Foley_CV.pdf, then set:
+  #   cv_pdf: /assets/files/Nicholas_Foley_CV.pdf
+  # Until then the "Download PDF" buttons are hidden.
+  cv_pdf: ""
+
+# Top navigation (order matters)
+nav:
+  - title: About
+    url: /about/
+  - title: Research
+    url: /research/
+  - title: Publications
+    url: /publications/
+  - title: Projects
+    url: /projects/
+  - title: CV
+    url: /cv/
+
+# Shown on the home page
+home:
+  news_count: 6
+
+# Social card / SEO (jekyll-seo-tag)
+lang: en_US
+social:
+  name: Nicholas Foley
+  links:
+    - https://github.com/Foley-ops
+    - https://www.linkedin.com/in/nicholasmfoley
+    - https://orcid.org/0009-0006-3996-0609
+    - https://scholar.google.com/citations?user=jx__rcgAAAAJ
+
+# ─────────────────────────────────────────────────────────────
+#  Build settings — no need to touch these
+# ─────────────────────────────────────────────────────────────
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter_opts:
+    disable: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-scholar
+
+# Publications come from _bibliography/papers.bib (jekyll-scholar)
+scholar:
+  source: ./_bibliography
+  bibliography: papers.bib
+  bibliography_template: bib      # _layouts/bib.html
+  sort_by: year,month
+  order: descending,descending
+  group_by: none
+  # Bold this name in author lists
+  last_name: [Foley]
+  first_name: [Nicholas, N.]
+  # Site-only fields kept out of the BibTeX that visitors copy
+  bibtex_skip_fields: [abstract, month_numeric, abbr, selected, tldr, arxiv, pdf, code, slides, poster, video, website]
+
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - LICENSE
+  - .bundle
+  - node_modules

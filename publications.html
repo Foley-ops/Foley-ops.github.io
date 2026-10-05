@@ -1,0 +1,48 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+kicker: Papers & preprints
+---
+<p class="page-note">
+  Also on
+  <a href="https://scholar.google.com/citations?user=jx__rcgAAAAJ">Google Scholar</a>
+  and <a href="https://orcid.org/0009-0006-3996-0609">ORCID</a>.
+  <span class="me-key"><span class="me">Bold</span> marks me.</span>
+</p>
+
+{%- capture n_conf %}{% bibliography_count --query @inproceedings %}{% endcapture -%}
+{%- assign n_conf = n_conf | strip -%}
+{%- if n_conf != "0" and n_conf != "" %}
+<section class="pub-group">
+  <h2 class="section-label">Conference papers</h2>
+  {% bibliography --query @inproceedings %}
+</section>
+{%- endif %}
+
+{%- capture n_jour %}{% bibliography_count --query @article %}{% endcapture -%}
+{%- assign n_jour = n_jour | strip -%}
+{%- if n_jour != "0" and n_jour != "" %}
+<section class="pub-group">
+  <h2 class="section-label">Journal articles</h2>
+  {% bibliography --query @article %}
+</section>
+{%- endif %}
+
+{%- capture n_pre %}{% bibliography_count --query @misc %}{% endcapture -%}
+{%- assign n_pre = n_pre | strip -%}
+{%- if n_pre != "0" and n_pre != "" %}
+<section class="pub-group">
+  <h2 class="section-label">Preprints</h2>
+  {% bibliography --query @misc %}
+</section>
+{%- endif %}
+
+{%- capture n_thesis %}{% bibliography_count --query @phdthesis %}{% endcapture -%}
+{%- assign n_thesis = n_thesis | strip -%}
+{%- if n_thesis != "0" and n_thesis != "" %}
+<section class="pub-group">
+  <h2 class="section-label">Theses</h2>
+  {% bibliography --query @phdthesis %}
+</section>
+{%- endif %}

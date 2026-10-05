@@ -1,0 +1,18 @@
+{%- assign e = include.entry -%}
+<div class="cv-entry">
+  <div class="cv-dates">{{ e.dates }}</div>
+  <div class="cv-content">
+    <p class="cv-title">{{ e.degree | default: e.role | default: e.title }}</p>
+    {%- assign org = e.institution | default: e.org -%}
+    {%- if org %}
+    <p class="cv-org">{{ org | markdownify | remove: '<p>' | remove: '</p>' | strip }}{% if e.location %}<span class="faint"> · {{ e.location }}</span>{% endif %}</p>
+    {%- endif %}
+    {%- if e.details and e.details.size > 0 %}
+    <ul class="cv-details">
+      {%- for d in e.details %}
+      <li>{{ d | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</div>

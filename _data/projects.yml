@@ -1,0 +1,88 @@
+# Projects — grouped by `group` (groups appear in the order listed here).
+#   featured: true → also shown on the home page
+#   tags: short tech/topic labels
+#   links: any of code, paper, demo, docs
+
+groups:
+  - key: research
+    title: Research software
+  - key: tools
+    title: Tools & side projects
+
+items:
+  - name: ParetoPipe
+    group: research
+    featured: true
+    note: with the CloudSys Lab, UTSA
+    blurb: >-
+      Open-source framework for multi-objective DNN partitioning. Sweeps every
+      valid split point across Raspberry Pi and edge-to-GPU-server testbeds,
+      simulates network conditions, and maps the latency–throughput Pareto front.
+      Supports PyTorch RPC and raw TCP backends.
+    tags: [PyTorch, pipeline parallelism, edge inference]
+    links:
+      code: https://github.com/cloudsyslab/ParetoPipe
+      paper: https://arxiv.org/abs/2601.08025
+
+  - name: distributed-inference
+    group: research
+    featured: true
+    blurb: >-
+      Pipelined CNN inference across a Raspberry Pi cluster using balanced model
+      partitions and asynchronous RPC with multiple batches in flight:
+      13.85 images/s, 6.38× a sequential baseline.
+    tags: [PyTorch, RPC, Raspberry Pi]
+    links:
+      code: https://github.com/Foley-ops/distributed-inference
+
+  - name: knowledge-navigator
+    group: research
+    featured: true
+    blurb: >-
+      Local-first research reference for mathematics, AI, and programming:
+      canonical concept pages in a typed knowledge graph, prerequisite-based
+      reading paths, full-text search, and answers grounded by local models.
+    tags: [TypeScript, Docusaurus, SQLite FTS5, Ollama]
+    links:
+      code: https://github.com/Foley-ops/knowledge-navigator
+
+  - name: firmament
+    group: tools
+    blurb: >-
+      A hands-off world simulator: real physics, exact conservation laws,
+      bit-identical replay, and a single seeded life form. Built in
+      acceptance-tested phases.
+    tags: [Python, simulation, GPU]
+    links:
+      code: https://github.com/Foley-ops/firmament
+
+  - name: mtg-deck-builder
+    group: tools
+    blurb: >-
+      Builds Magic: The Gathering Commander decks across five power brackets by
+      combining real play data (EDHREC, Commander Spellbook, Scryfall) with a
+      graph neural network trained on card co-occurrence, under budget and
+      collection constraints.
+    tags: [PyTorch Geometric, GNNs, recommender]
+    links:
+      code: https://github.com/Foley-ops/mtg-deck-builder
+
+  - name: coding-playground-for-kids
+    group: tools
+    blurb: >-
+      Self-hosted platform that teaches kids to program through 61 guided Python
+      and JavaScript challenges. Code runs in the browser via Pyodide, so it
+      works offline on a home network.
+    tags: [Flask, Pyodide, CodeMirror, Docker]
+    links:
+      code: https://github.com/Foley-ops/coding-playground-for-kids
+
+  - name: cutoffarr
+    group: tools
+    blurb: >-
+      Go service that unmonitors movies and seasons in Radarr/Sonarr once they
+      meet their quality profile, with a dry-run dashboard, webhook
+      integration, and guardrails against destructive writes.
+    tags: [Go, Docker, self-hosting]
+    links:
+      code: https://github.com/Foley-ops/cutoffarr

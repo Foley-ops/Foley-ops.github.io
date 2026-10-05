@@ -1,0 +1,31 @@
+# Profile links — shown on the home page, About page, and footer.
+# icon: one of email, github, scholar, orcid, linkedin, researchgate, arxiv, globe
+- label: Email
+  url: mailto:nickmfoley@gmail.com
+  icon: email
+  display: nickmfoley@gmail.com
+
+- label: GitHub
+  url: https://github.com/Foley-ops
+  icon: github
+  display: Foley-ops
+
+- label: Google Scholar
+  url: https://scholar.google.com/citations?user=jx__rcgAAAAJ
+  icon: scholar
+  display: Scholar profile
+
+- label: ORCID
+  url: https://orcid.org/0009-0006-3996-0609
+  icon: orcid
+  display: 0009-0006-3996-0609
+
+- label: LinkedIn
+  url: https://www.linkedin.com/in/nicholasmfoley
+  icon: linkedin
+  display: nicholasmfoley
+
+- label: ResearchGate
+  url: https://www.researchgate.net/profile/Nicholas-Foley-2
+  icon: researchgate
+  display: Nicholas-Foley-2

@@ -1,0 +1,30 @@
+---
+---
+{%- comment -%}
+  One publication on /publications/. Rendered by jekyll-scholar for each
+  BibTeX entry; `entry` holds the fields, `key` the cite key.
+{%- endcomment -%}
+{%- include bib-vars.html -%}
+<article class="pub" id="{{ key }}">
+  <div class="pub-tag pub-tag-{{ type_class }}">{{ entry.abbr | default: type_label }}</div>
+  <div class="pub-main">
+    <h3 class="pub-title">{% if title_url %}<a href="{{ title_url }}">{{ entry.title }}</a>{% else %}{{ entry.title }}{% endif %}</h3>
+    <p class="pub-authors">{{ authors }}</p>
+    <p class="pub-venue"><em>{{ venue }}</em>{% if entry.address %}, {{ entry.address }}{% endif %}, {{ entry.year }}.{% if entry.note %} <span class="pub-note">{{ entry.note }}</span>{% endif %}</p>
+    {%- if entry.tldr %}
+    <p class="pub-tldr">{{ entry.tldr }}</p>
+    {%- endif %}
+    <div class="pub-links">
+      {%- include bib-links.html %}
+      {%- if entry.bibtex %}
+      <button class="chip-link bib-toggle" type="button" aria-expanded="false" aria-controls="bib-{{ key }}">{% include icon.html name="bibtex" %}<span>BibTeX</span></button>
+      {%- endif %}
+    </div>
+    {%- if entry.bibtex %}
+    <div class="bibtex" id="bib-{{ key }}" hidden>
+      <button class="copy-btn" type="button" data-copy="bib-code-{{ key }}">Copy</button>
+      <pre><code id="bib-code-{{ key }}">{{ entry.bibtex | strip | escape }}</code></pre>
+    </div>
+    {%- endif %}
+  </div>
+</article>

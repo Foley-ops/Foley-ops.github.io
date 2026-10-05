@@ -1,0 +1,5 @@
+---
+---
+{%- comment -%} Citation-style entry for the CV page. {%- endcomment -%}
+{%- include bib-vars.html -%}
+{{ authors }}. “{% if title_url %}<a href="{{ title_url }}">{{ entry.title }}</a>{% else %}{{ entry.title }}{% endif %}.” <em>{{ venue }}</em>{% if entry.address %}, {{ entry.address }}{% endif %}, {{ entry.year }}.{% if entry.code %} <a class="faint" href="{{ entry.code }}">[code]</a>{% endif %}

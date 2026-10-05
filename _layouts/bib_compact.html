@@ -1,0 +1,15 @@
+---
+---
+{%- comment -%} Compact publication entry for the home page. {%- endcomment -%}
+{%- include bib-vars.html -%}
+<article class="pub pub-compact">
+  <div class="pub-tag pub-tag-{{ type_class }}">{{ entry.abbr | default: type_label }}</div>
+  <div class="pub-main">
+    <h3 class="pub-title">{% if title_url %}<a href="{{ title_url }}">{{ entry.title }}</a>{% else %}{{ entry.title }}{% endif %}</h3>
+    <p class="pub-authors">{{ authors }}</p>
+    <p class="pub-venue"><em>{{ venue }}</em>{% if entry.address %}, {{ entry.address }}{% endif %}, {{ entry.year }}.</p>
+    <div class="pub-links">
+      {%- include bib-links.html %}
+    </div>
+  </div>
+</article>

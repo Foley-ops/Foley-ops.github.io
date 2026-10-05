@@ -1,0 +1,25 @@
+{%- comment -%} Link buttons for a jekyll-scholar entry (uses vars from bib-vars.html). {%- endcomment -%}
+{%- if arxiv_url %}
+<a class="chip-link" href="{{ arxiv_url }}">{% include icon.html name="arxiv" %}<span>arXiv</span></a>
+{%- endif -%}
+{%- if entry.pdf %}
+<a class="chip-link" href="{{ entry.pdf }}">{% include icon.html name="pdf" %}<span>PDF</span></a>
+{%- endif -%}
+{%- if entry.code %}
+<a class="chip-link" href="{{ entry.code }}">{% include icon.html name="code" %}<span>Code</span></a>
+{%- endif -%}
+{%- if doi_url %}
+<a class="chip-link" href="{{ doi_url }}">{% include icon.html name="doi" %}<span>DOI</span></a>
+{%- endif -%}
+{%- if entry.slides %}
+<a class="chip-link" href="{{ entry.slides }}">{% include icon.html name="slides" %}<span>Slides</span></a>
+{%- endif -%}
+{%- if entry.poster %}
+<a class="chip-link" href="{{ entry.poster }}">{% include icon.html name="poster" %}<span>Poster</span></a>
+{%- endif -%}
+{%- if entry.video %}
+<a class="chip-link" href="{{ entry.video }}">{% include icon.html name="video" %}<span>Video</span></a>
+{%- endif -%}
+{%- if entry.website %}
+<a class="chip-link" href="{{ entry.website }}">{% include icon.html name="project" %}<span>Project page</span></a>
+{%- endif -%}

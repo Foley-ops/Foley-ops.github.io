@@ -1,0 +1,70 @@
+# Builds the site with Jekyll and deploys it to GitHub Pages.
+# Runs on every push to main, and on demand from the Actions tab.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; don't cancel a deploy that's already running.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true   # runs bundle install and caches gems
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      # Broken internal links or images fail the build, so they never go live.
+      - name: Check internal links
+        run: >-
+          bundle exec htmlproofer ./_site --disable-external
+          --swap-urls "^https\://foley-ops\.github\.io:"
+
+      # External links are checked too, but only reported (see this step's log):
+      # other sites go down or block bots, and that shouldn't stop a deploy.
+      - name: Check external links (report only)
+        continue-on-error: true
+        run: >-
+          bundle exec htmlproofer ./_site
+          --swap-urls "^https\://foley-ops\.github\.io:"
+          --ignore-status-codes "0,403,429,999"
+          --ignore-urls "/linkedin\.com/,/scholar\.google\.com/,/researchgate\.net/"
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

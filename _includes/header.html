@@ -1,0 +1,17 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
+    <nav class="site-nav" aria-label="Primary">
+      {%- for item in site.nav -%}
+        {%- assign item_url = item.url | relative_url -%}
+        {%- assign here = page.url | relative_url -%}
+        <a href="{{ item_url }}"{% if here == item_url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor -%}
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+      <span class="when-light">{% include icon.html name="moon" %}</span>
+      <span class="when-dark">{% include icon.html name="sun" %}</span>
+    </button>
+  </div>
+</header>
