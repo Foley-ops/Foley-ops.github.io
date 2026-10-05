@@ -70,7 +70,7 @@ service:
       - Designed and taught environmental and occupational health and safety courses for over 100 Marines.
 
 teaching:
-  - role: Grader, Probability and Computing
+  - role: "Grader, CS 4333/5463: Probability and Computing"
     org: UTSA, Dr. Alperen Ergür
     dates: Fall 2026
 
